@@ -1,4 +1,3 @@
-import io.qameta.allure.junit4.DisplayName;
 import org.example.pageobjects.ClickPage;
 import org.junit.After;
 import org.junit.Before;
@@ -8,8 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.*;
 
 public class ClickPageTest {
     WebDriver driver;
@@ -29,32 +27,21 @@ public class ClickPageTest {
     }
 
     @Test
-    @DisplayName("Check  Button color changing after click")
-    public void checkButtonColorAfterClick(){
+    public void badButtonIsSucceedAfterClick() {
         objClickPage.clickButton();
-        assertEquals( "rgba(1, 123, 250, 1)",objClickPage.getButtonColor());
+        assertTrue(objClickPage.isBadButtonSuccess());
     }
 
     @Test
-    @DisplayName("Check initial Button color")
-    public void checkInitialButtonColor(){
-        assertEquals( "rgba(0, 123, 255, 1)",objClickPage.getButtonColor());
+    public void badButtonInitialState() {
+        assertFalse(objClickPage.isBadButtonSuccess());
     }
 
     @Test
-    @DisplayName("Check changing Button color")
-    public void checkButtonColorChanging(){
-        String oldColor = objClickPage.getButtonColor();
-        objClickPage.clickButton();
-        String newColor = objClickPage.getButtonColor();
-        assertNotEquals( oldColor,newColor);
-    }
-
-    @Test
-    @DisplayName("Return back from  Click Page to Main Page")
-    public void returnBackToMainPage(){
+    public void returnBackToMainPage() {
+        objClickPage.openClickPage();
         objClickPage.clickUITAPBtn();
         String expectedURL = "http://uitestingplayground.com/";
-        assertEquals("This is not a Main page",expectedURL, driver.getCurrentUrl());
+        assertEquals("This is not a Main page", expectedURL, driver.getCurrentUrl());
     }
 }

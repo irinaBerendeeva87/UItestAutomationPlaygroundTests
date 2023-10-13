@@ -1,4 +1,3 @@
-import io.qameta.allure.junit4.DisplayName;
 import org.example.pageobjects.MainPage;
 import org.junit.After;
 import org.junit.Assert;
@@ -27,7 +26,6 @@ public class MainPageTest {
     }
 
     @Test
-    @DisplayName("Check Title Text at MainPage")
     public void checkTitleTextTest(){
         String expected = "UI Test Automation\nPlayground";
         String actual = objMainPage.getTitle();
@@ -35,7 +33,6 @@ public class MainPageTest {
     }
 
     @Test
-    @DisplayName("Check Click element  and load ")
     public void checkClickElementInOverviewTest(){
         objMainPage.clickClickPageLink();
         String expectedURL = "http://uitestingplayground.com/click";
