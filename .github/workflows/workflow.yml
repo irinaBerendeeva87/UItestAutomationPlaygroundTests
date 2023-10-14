@@ -34,6 +34,6 @@ jobs:
       - name: Publish test report
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: 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
+          github_token: ${{ secrets.GITHUB_ACCESS_TOKEN }}
           publish_branch: gh-pages
           publish_dir: allure-history
