@@ -1,3 +1,4 @@
+import io.qameta.allure.junit4.DisplayName;
 import org.example.pageobjects.ClickPage;
 import org.junit.After;
 import org.junit.Before;
@@ -16,6 +17,7 @@ public class ClickPageTest {
     ClickPage objClickPage;
 
     @Before
+    @DisplayName("Launch the driver")
     public void before() {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
@@ -29,22 +31,26 @@ public class ClickPageTest {
         objClickPage.openClickPage();
     }
 
+    @DisplayName("Teardown")
     @After
     public void teardown() {
         driver.quit();
     }
 
+    @DisplayName("BadButton changed the class name")
     @Test
     public void badButtonIsSucceedAfterClick() {
         objClickPage.clickButton();
         assertTrue(objClickPage.isBadButtonSuccess());
     }
 
+    @DisplayName("BadButton button is in the initial state")
     @Test
     public void badButtonInitialState() {
         assertFalse(objClickPage.isBadButtonSuccess());
     }
 
+    @DisplayName("Return back to MainPage")
     @Test
     public void returnBackToMainPage() {
         objClickPage.openClickPage();

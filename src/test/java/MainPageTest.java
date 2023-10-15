@@ -1,4 +1,5 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.junit4.DisplayName;
 import org.example.pageobjects.MainPage;
 import org.junit.After;
 import org.junit.Assert;
@@ -14,6 +15,7 @@ public class MainPageTest {
     WebDriver driver;
     MainPage objMainPage;
 
+    @DisplayName("Launch the driver")
     @Before
     public void before() {
         WebDriverManager.chromedriver().setup();
@@ -28,20 +30,23 @@ public class MainPageTest {
         objMainPage.openMainPage();
     }
 
+    @DisplayName("Teardown")
     @After
     public void teardown() {
         driver.quit();
     }
 
+    @DisplayName("Check page title text")
     @Test
-    public void checkTitleTextTest(){
+    public void checkTitleText(){
         String expected = "UI Test Automation\nPlayground";
         String actual = objMainPage.getTitle();
         Assert.assertEquals("Title doesn't equal", expected, actual);
     }
 
+    @DisplayName("check ClickElement In the Overview@Test")
     @Test
-    public void checkClickElementInOverviewTest(){
+    public void checkClickElementInOverview(){
         objMainPage.clickClickPageLink();
         String expectedURL = "http://uitestingplayground.com/click";
         Assert.assertEquals("Click page  didn't open",expectedURL, driver.getCurrentUrl());
