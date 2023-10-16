@@ -1,4 +1,4 @@
-
+# 🚀 UI Test Automation Playground 🚀
 I have tested the basic functionality of the web application [UI Test Automation Playground](http://uitestingplayground.com/) and wrote five tests to evaluate it.
 
 📝 Tests:
