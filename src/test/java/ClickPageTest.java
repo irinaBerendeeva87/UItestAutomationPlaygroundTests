@@ -1,22 +1,23 @@
-import io.qameta.allure.junit4.DisplayName;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.example.pageobjects.ClickPage;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.time.Duration;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
+
 
 public class ClickPageTest {
     WebDriver driver;
     ClickPage objClickPage;
 
-    @Before
+    @BeforeEach
     @DisplayName("Launch the driver")
     public void before() {
         WebDriverManager.chromedriver().setup();
@@ -32,7 +33,7 @@ public class ClickPageTest {
     }
 
     @DisplayName("Teardown")
-    @After
+    @AfterEach
     public void teardown() {
         driver.quit();
     }
@@ -56,6 +57,6 @@ public class ClickPageTest {
         objClickPage.openClickPage();
         objClickPage.clickUITAPBtn();
         String expectedURL = "http://uitestingplayground.com/";
-        assertEquals("This is not a Main page", expectedURL, driver.getCurrentUrl());
+        assertEquals( expectedURL, driver.getCurrentUrl(),"This is not a Main page");
     }
 }

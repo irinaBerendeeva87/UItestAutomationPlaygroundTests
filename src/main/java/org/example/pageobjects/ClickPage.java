@@ -11,7 +11,7 @@ public class ClickPage {
         this.driver = driver;
     }
 
-    private final By UITAPBtn = By.xpath("//a[@class='navbar-brand' and @href='/']");
+    private final By UITAPBtn = By.xpath("//*[@class='navbar-brand']");
     private final By badButton = By.id("badButton");
 
     public void openClickPage() {
