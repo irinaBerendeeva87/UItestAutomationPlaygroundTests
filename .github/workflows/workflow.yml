@@ -23,6 +23,7 @@ jobs:
 #          chrome-version: stable
 #          id: setup-chrome
 #      - run: chrome --version
+
       - name: Build with Maven
         run: mvn -B clean test
       - name: Load test report history
