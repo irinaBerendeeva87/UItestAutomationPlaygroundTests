@@ -1,0 +1,6 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Fri Dec 15 11:56:20 GMT 2023","Fri Dec 15 11:56:20 GMT 2023","537","","ClickPageTest","","ClickPageTest","badButtonIsSucceedAfterClick","BadButton changed the class name",""
+"passed","Fri Dec 15 11:56:06 GMT 2023","Fri Dec 15 11:56:19 GMT 2023","13071","","ClickPageTest","","ClickPageTest","returnBackToMainPage","Return back to MainPage",""
+"passed","Fri Dec 15 11:56:21 GMT 2023","Fri Dec 15 11:56:21 GMT 2023","447","","MainPageTest","","MainPageTest","checkTitleText","Check page title text",""
+"passed","Fri Dec 15 11:56:19 GMT 2023","Fri Dec 15 11:56:20 GMT 2023","514","","ClickPageTest","","ClickPageTest","badButtonInitialState","BadButton button is in the initial state",""
+"passed","Fri Dec 15 11:56:20 GMT 2023","Fri Dec 15 11:56:21 GMT 2023","671","","MainPageTest","","MainPageTest","checkClickElementInOverview","check ClickElement In the Overview@Test",""
