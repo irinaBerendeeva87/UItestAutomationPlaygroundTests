@@ -1,33 +1,36 @@
 package org.example.pageobjects;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
-public class ClickPage {
-    private final WebDriver driver;
+public class ClickPage extends BasePageObject {
     private final static String clickPage = "http://uitestingplayground.com/click";
 
+    @FindBy(xpath = "//*[@class='navbar-brand']")
+    protected WebElement UITAPBtn;
+
+    @FindBy(id = "badButton")
+    protected WebElement badButton;
+
     public ClickPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
-    private final By UITAPBtn = By.xpath("//*[@class='navbar-brand']");
-    private final By badButton = By.id("badButton");
-
     public void openClickPage() {
-        driver.get(clickPage);
+        getDriver().get(clickPage);
     }
 
     public void clickButton() {
-        driver.findElement(badButton).click();
+        waitForVisibility(badButton).click();
     }
 
     public Boolean isBadButtonSuccess() {
-        String classValue = driver.findElement(badButton).getAttribute("class");
+        String classValue = waitForVisibility(badButton).getAttribute("class");
         return classValue.contains("btn-success");
     }
 
     public void clickUITAPBtn() {
-        driver.findElement(UITAPBtn).click();
+        waitForVisibility(UITAPBtn).click();
     }
 }

@@ -1,29 +1,32 @@
 package org.example.pageobjects;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
-public class MainPage {
-    private final WebDriver driver;
+public class MainPage extends BasePageObject {
+
     private final static String mainPage = "http://uitestingplayground.com/";
 
+    @FindBy(id = "title")
+    protected WebElement pageTitle;
+
+    @FindBy(linkText = "Click")
+    protected WebElement linkClick;
+
     public MainPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
-    private final By pageTitle = By.id("title");
-
-    private final By linkClick = By.linkText("Click");
-
     public void openMainPage() {
-        driver.get(mainPage);
+        getDriver().get(mainPage);
     }
 
     public String getTitle() {
-        return driver.findElement(pageTitle).getText();
+        return waitForVisibility(pageTitle).getText();
     }
 
     public void clickClickPageLink() {
-        driver.findElement(linkClick).click();
+        waitForVisibility(linkClick).click();
     }
 }
